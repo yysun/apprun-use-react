@@ -1,13 +1,19 @@
-import app from 'apprun';
+import { app, Component } from 'apprun';
 
-const state = 'Hello world - AppRun !';
+import React from 'react';
+import * as ReactDOM from 'react-dom';
+app.render = (el, vdom) => ReactDOM.render(vdom, el);
 
-const view = (state) => <div>
-  <h1>{state}</h1>
-</div>;
-
-const update = {
-
-};
-
-app.start(document.body, state, view, update);
+class MyComponent extends Component {
+  state = 0;
+  view = count => <div>
+    <p>You clicked {count} times</p>
+    <button onClick={() => this.run('add')}>
+      Click me
+    </button>
+  </div>;
+  update = {
+    add: state => state + 1
+  };
+}
+new MyComponent().start('my-app');
