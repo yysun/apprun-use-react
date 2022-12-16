@@ -32,6 +32,16 @@ import * as ReactDOM from 'react-dom';
 app.render = (el, vdom) => ReactDOM.render(vdom, el);
 ```
 
+We also need to add React to each component.
+
+```js
+import { Component } from 'apprun';
+import React from 'react';
+
+export default class  extends Component {
+}
+```
+
 That's all and have fun!
 
 (C) 2022, Yiyi Sun
